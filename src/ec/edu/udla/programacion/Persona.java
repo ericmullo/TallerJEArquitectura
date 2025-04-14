@@ -1,80 +1,45 @@
 package ec.edu.udla.programacion;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public abstract class Persona implements Usuario {
+public abstract class Persona implements Usuario, Serializable {
     private String nombre;
-    private String Apellido;
+    private String apellido;
     private Date bday;
     private String genero;
     private int id;
 
     public Persona(String nombre, String apellido, Date bday, String genero, int id) {
         this.nombre = nombre;
-        Apellido = apellido;
+        this.apellido = apellido;
         this.bday = bday;
         this.genero = genero;
         this.id = id;
     }
 
-    public Persona() {
-    }
+    public Persona() {}
 
-    public String getNombre() {
-        return nombre;
-    }
+    public String getNombre() { return nombre; }
+    public void setNombre(String nombre) { this.nombre = nombre; }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+    public String getApellido() { return apellido; }
+    public void setApellido(String apellido) { this.apellido = apellido; }
 
-    public String getApellido() {
-        return Apellido;
-    }
+    public Date getBday() { return bday; }
+    public void setBday(Date bday) { this.bday = bday; }
 
-    public void setApellido(String apellido) {
-        Apellido = apellido;
-    }
+    public String getGenero() { return genero; }
+    public void setGenero(String genero) { this.genero = genero; }
 
-    public Date getBday() {
-        return bday;
-    }
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
 
-    public void setBday(Date bday) {
-        this.bday = bday;
-    }
-
-    public String getGenero() {
-        return genero;
-    }
-
-    public void setGenero(String genero) {
-        this.genero = genero;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void caminar(){
+    public void caminar() {
         System.out.println("Persona Caminar");
     }
-    public abstract void clase();
 
-    @Override
-    public String toString() {
-        return "Persona{" +
-                "nombre='" + nombre + '\'' +
-                ", Apellido='" + Apellido + '\'' +
-                ", bday=" + bday +
-                ", genero='" + genero + '\'' +
-                ", id=" + id +
-                '}';
-    }
+    public abstract void clase();
 
     @Override
     public void Iniciarsesion() {
@@ -82,5 +47,7 @@ public abstract class Persona implements Usuario {
     }
 
     @Override
-    public abstract void PerfilUsuario();
+    public String toString() {
+        return nombre + " " + apellido;
+    }
 }
